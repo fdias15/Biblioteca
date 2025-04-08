@@ -1,4 +1,4 @@
-package org.iftm.projeto;
+package org.iftm.projeto.entities;
 
 import java.io.Serializable;
 
