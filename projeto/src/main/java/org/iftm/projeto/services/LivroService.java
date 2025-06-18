@@ -1,10 +1,10 @@
-package org.iftm.client_api_rest.service;
+package org.iftm.projeto.services;
 
 import java.util.List;
 import java.util.Optional;
 
-import org.iftm.client_api_rest.entities.Livro;
-import org.iftm.client_api_rest.repositories.LivroRepository;
+import org.iftm.projeto.entities.Livro;
+import org.iftm.projeto.repositories.LivroRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta de Livros</title>
+    <link rel="stylesheet" href="styles2.css">
+</head>
+<body>
+    <div id="livro-info">
+        <!-- Título -->
+        <h1>Consulta de Livros</h1>
+
+        <div class="input-container">
+            <label for="livro-id">Digite o ID do livro:</label>
+            <input type="number" id="livro-id" placeholder="Ex.: 1" min="1">
+            <button onclick="apresentarDadosLivro()">Buscar</button>
+            <button onclick="apresentarTodosLivros()">Mostrar Todos</button>
+            <button onclick="limparTela()" class="clear-btn">Limpar Tela</button>
+        </div>
+
+        <div id="livro-details"></div>
+
+        <div id="all-livros" class="hidden">
+            <h2>Todos os Livros</h2>
+            <table id="livros-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Título</th>
+                        <th>Autor</th>
+                        <th>Gênero</th>
+                        <th>Ano de Publicação</th>
+                        <th>Disponível</th>
+                    </tr>
+                </thead>
+                <tbody id="livros-table-body">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="script-findall.js"></script>
+</body>
+</html>
