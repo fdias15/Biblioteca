@@ -2,15 +2,13 @@ package org.iftm.projeto.entities;
 
 import java.io.Serializable;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import jakarta.persistence.*;
 
 @Entity
 public class Livro implements Serializable {
-    // @Serial
     private static final long serialVersionUID = 1L;
 
     @Id
@@ -32,7 +30,17 @@ public class Livro implements Serializable {
     @Column(nullable = false)
     private boolean disponivel;
 
-    // Construtores, getters e setters
+    @ManyToOne
+    @JoinColumn(name = "usuario_id")
+    @JsonIgnore
+    private Usuario usuario;
+
+    @ManyToOne
+    @JoinColumn(name = "categoria_id")
+    @JsonIgnoreProperties("livros") // evita loop na serialização
+    private Category categoria;
+
+    // Construtores
     public Livro() {
     }
 
@@ -45,6 +53,7 @@ public class Livro implements Serializable {
         this.disponivel = disponivel;
     }
 
+    // Getters e Setters
     public Long getId() {
         return id;
     }
@@ -91,5 +100,21 @@ public class Livro implements Serializable {
 
     public void setDisponivel(boolean disponivel) {
         this.disponivel = disponivel;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public Category getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Category categoria) {
+        this.categoria = categoria;
     }
 }
